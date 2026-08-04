@@ -1,0 +1,11 @@
+{
+  "name": "Bodaya - Rencontres Algérie",
+  "description": "Application web de rencontre moderne, élégante et sécurisée pour les utilisateurs en Algérie avec recherche en grille, profils vérifiés et messagerie instantanée.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

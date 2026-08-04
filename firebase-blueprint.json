@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "Profile": {
+      "title": "Profile",
+      "description": "User profile document",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "age": { "type": "number" },
+        "gender": { "type": "string", "enum": ["male", "female"] },
+        "city": { "type": "string", "maxLength": 100 },
+        "profession": { "type": "string", "maxLength": 100 },
+        "education": { "type": "string", "maxLength": 150 },
+        "bio": { "type": "string", "maxLength": 1000 },
+        "photos": { "type": "array" },
+        "interests": { "type": "array" },
+        "isVerified": { "type": "boolean" },
+        "isOnline": { "type": "boolean" },
+        "lastSeen": { "type": "string" },
+        "lookingFor": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "gender", "city"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Chat message",
+      "type": "object",
+      "properties": {
+        "senderId": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "text": { "type": "string", "maxLength": 2000 },
+        "timestamp": { "type": "string" },
+        "isRead": { "type": "boolean" }
+      },
+      "required": ["senderId", "receiverId", "text"]
+    }
+  },
+  "firestore": {
+    "/profiles/{profileId}": {
+      "schema": { "$ref": "#/entities/Profile" },
+      "description": "Collection of user profiles"
+    },
+    "/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/Message" },
+      "description": "Collection of direct messages"
+    }
+  }
+}
